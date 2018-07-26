@@ -1,24 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import BGVideo from '../../Components/BGVideo';
+import FormModal from '../../Components/FormModal';
+import {
+  login,
+  register,
+} from '../../Store/Actions/Auth';
 
-const Auth = () => (
+const Auth = ({registerFunc, loginFunc, isRequesting}) => (
   <div>
-    Auth
+    <BGVideo url="/assets/video/bgvid.mp4" dark />
+    <FormModal register={registerFunc} login={loginFunc} isRequesting={isRequesting}/>
   </div>
 );
 
-// still to come
-// Auth.propTypes = {
-//   loginFunc: PropTypes.func.isRequired,
-//   registerFunc: PropTypes.func.isRequired,
-// };
+Auth.propTypes = {
+  loginFunc: PropTypes.func.isRequired,
+  registerFunc: PropTypes.func.isRequired,
+};
 
-// const mapDispatchToProps = {
-//   loginFunc: login,
-//   registerFunc: register,
-// };
+const mapDispatchToProps = {
+  loginFunc: login,
+  registerFunc: register,
+};
 
-export default connect(null, {})(Auth);
+const mapStateToProps = state => ({
+  isRequesting: state.global.isRequesting,
+});
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
