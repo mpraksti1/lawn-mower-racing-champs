@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Home from '../../Pages/Home';
 import Roster from '../../Pages/Roster';
@@ -9,12 +10,12 @@ import { logout } from '../../Store/Actions/Auth';
 import { createPlayer, deletePlayer, retrievePlayers } from '../../Store/Actions/Player';
 import StyledDiv from './styles';
 
-const Site = props => {
+const Site = (props) => {
   // Redirect away from all non-auth routes if not logged in
-  const logoutAndRedirect = path => {
+  const logoutAndRedirect = (path) => {
     props.logUserOut();
     props.history.push(path);
-  }
+  };
 
   if (!window.localStorage.token) {
     logoutAndRedirect('/auth/register');
@@ -27,7 +28,7 @@ const Site = props => {
     retrievePlayersFunc,
     deletePlayerFunc,
     isRequesting,
-    players
+    players,
   } = props;
 
   return (
@@ -36,7 +37,7 @@ const Site = props => {
         <Route exact path="/" component={Home} />
         <Route
           path="/roster"
-          render={(props) => (
+          render={() => (
             <Roster
               {...props}
               players={players}
@@ -47,7 +48,7 @@ const Site = props => {
         />
         <Route
           path="/player/new"
-          render={(props) => (
+          render={() => (
             <Player
               {...props}
               createPlayer={createPlayerFunc}
@@ -66,11 +67,22 @@ const mapDispatchToProps = ({
   createPlayerFunc: createPlayer,
   deletePlayerFunc: deletePlayer,
   retrievePlayersFunc: retrievePlayers,
-})
+});
 
 const mapStateToProps = state => ({
   players: state.players.players,
   isRequesting: state.global.isRequesting,
-})
+});
+
+Site.propTypes = {
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
+  logUserOut: PropTypes.func.isRequired,
+  createPlayerFunc: PropTypes.func.isRequired,
+  deletePlayerFunc: PropTypes.func.isRequired,
+  retrievePlayersFunc: PropTypes.func.isRequired,
+  players: PropTypes.arrayOf(PropTypes.object).isRequired,
+  isRequesting: PropTypes.bool.isRequired,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Site));

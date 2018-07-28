@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { withAlert } from 'react-alert';
 import PersonIcon from 'react-icons/lib/md/person';
 import StarIcon from 'react-icons/lib/md/star';
 import HandIcon from 'react-icons/lib/md/pan-tool';
+import { Formik, Field, Form } from 'formik';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
-import Text from '../../Elements/Text'
-import { Formik, Field, Form } from 'formik';
+import Text from '../../Elements/Text';
 
 const PlayerrSchema = Yup.object().shape({
   first_name: Yup.string()
@@ -24,37 +25,7 @@ const PlayerrSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const PlayerForm = props => (
-  <BaseForm>
-  <Formik
-    initialValues={{
-      first_name: '',
-      last_name: '',
-      rating: '1',
-      handedness: 'right',
-    }}
-    validationSchema={PlayerrSchema}
-      onSubmit={async player => {
-        const token = window.localStorage.token;
-        try {
-          const playerResult = await props.createPlayer(player, token);
-          console.log('PlayerResult', playerResult);
-          if (playerResult.success) {
-            props.history.push('/roster');
-          }
-          else {
-            props.alert.error(playerResult.error.message);
-          }
-        } catch(error) {
-          props.alert.error(error.message);
-        }
-      }}
-      component={MyForm}
-    />
-  </BaseForm>
-);
-
-const MyForm = ({touched, errors, isSubmitting}) => (
+const MyForm = ({ touched, errors, isSubmitting }) => (
   <div>
     <Text xlg thin sans spaceAround block>Add a racer:</Text>
     <Form>
@@ -104,5 +75,50 @@ const MyForm = ({touched, errors, isSubmitting}) => (
     </Form>
   </div>
 );
+
+const PlayerForm = props => (
+  <BaseForm>
+    <Formik
+      initialValues={{
+        first_name: '',
+        last_name: '',
+        rating: '1',
+        handedness: 'right',
+      }}
+      validationSchema={PlayerrSchema}
+      onSubmit={async (player) => {
+        const { token } = window.localStorage;
+        try {
+          const { createPlayer } = props;
+          const playerResult = await createPlayer(player, token);
+          if (playerResult.success) {
+            props.history.push('/roster');
+          } else {
+            props.alert.error(playerResult.error.message);
+          }
+        } catch (error) {
+          props.alert.error(error.message);
+        }
+      }}
+      component={MyForm}
+    />
+  </BaseForm>
+);
+
+MyForm.propTypes = {
+  // eslint-disable-next-line
+  errors: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  touched: PropTypes.object.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+};
+
+PlayerForm.propTypes = {
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  alert: PropTypes.object.isRequired,
+  createPlayer: PropTypes.func.isRequired,
+};
 
 export default withAlert(PlayerForm);

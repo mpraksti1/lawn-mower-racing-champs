@@ -1,6 +1,6 @@
 import React from 'react';
-import App from '.';
 import { shallow } from 'enzyme';
+import App from '.';
 
 it('renders without crashing', () => {
   shallow(<App />);

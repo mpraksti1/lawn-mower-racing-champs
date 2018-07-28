@@ -1,10 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StyledForm from './styles';
 
-export default props => {
+const BaseForm = (props) => {
+  const { children } = props;
   return (
     <StyledForm>
-      {props.children}
+      {children}
     </StyledForm>
-  )
-}
+  );
+};
+
+BaseForm.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default BaseForm;

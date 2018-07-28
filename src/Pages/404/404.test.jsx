@@ -1,6 +1,6 @@
 import React from 'react';
-import ErrorPage from '.';
 import { shallow } from 'enzyme';
+import ErrorPage from '.';
 
 it('renders without crashing', () => {
   shallow(<ErrorPage />);

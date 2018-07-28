@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { withAlert } from 'react-alert';
 import { Formik, Field, Form } from 'formik';
@@ -15,34 +16,6 @@ const SignInSchema = Yup.object().shape({
   password: Yup.string()
     .required('Required'),
 });
-
-const LoginForm = props => (
-  <BaseForm>
-    <Formik
-    initialValues={{
-      email: '',
-      password: '',
-    }}
-    validationSchema={SignInSchema}
-    onSubmit={
-      async creds => {
-        try {
-          const loginResult = await props.login(creds);
-          console.log('LoginResult', loginResult);
-          if (loginResult.success){
-            props.history.push('/roster');
-          }
-          else {
-            props.alert.error(loginResult.error.message);
-          }
-        } catch(error) {
-          props.alert.error(error.message);
-        }
-      }}
-      component={MyForm}
-    />
-  </BaseForm>
-);
 
 const MyForm = ({ errors, touched }) => (
   <div>
@@ -67,5 +40,49 @@ const MyForm = ({ errors, touched }) => (
     </Form>
   </div>
 );
+
+const LoginForm = props => (
+  <BaseForm>
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+      }}
+      validationSchema={SignInSchema}
+      onSubmit={
+        async (creds) => {
+          const { login } = props;
+          try {
+            const loginResult = await login(creds);
+            if (loginResult.success) {
+              props.history.push('/roster');
+            } else {
+              props.alert.error(loginResult.error.message);
+            }
+          } catch (error) {
+            props.alert.error(error.message);
+          }
+        }}
+      component={MyForm}
+    />
+  </BaseForm>
+);
+
+MyForm.propTypes = {
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  errors: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  touched: PropTypes.object.isRequired,
+};
+
+LoginForm.propTypes = {
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  alert: PropTypes.object.isRequired,
+  login: PropTypes.func.isRequired,
+};
 
 export default withAlert(LoginForm);

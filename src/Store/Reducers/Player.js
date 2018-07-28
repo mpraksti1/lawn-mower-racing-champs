@@ -12,17 +12,16 @@ export default (state = initialState, action) => {
     case CREATE_PLAYER:
       return {
         ...state,
-        players: [...state.players, action.payload ]
-      }
+        players: [...state.players, action.payload],
+      };
 
     case RETRIEVE_PLAYERS:
       return {
         ...state,
-        players: [ ...action.payload ]
-      }
+        players: [...action.payload],
+      };
 
     default:
-      return state
+      return state;
   }
-}
-
+};

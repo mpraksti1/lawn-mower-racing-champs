@@ -2,14 +2,14 @@ import {
   ASYNC_REQUESTED,
   REGISTER,
   LOGIN,
-  LOGOUT
+  LOGOUT,
 } from '../Actions/Types';
 
 const initialState = {
   user: {},
   isRequesting: false,
   isUserLoggedIn: false,
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -17,31 +17,30 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isRequesting: true,
-      }
+      };
 
     case REGISTER:
       return {
         ...state,
         isRequesting: false,
         isUserLoggedIn: true,
-      }
+      };
 
     case LOGIN:
       return {
         ...state,
         isRequesting: false,
         isUserLoggedIn: true,
-      }
+      };
 
     case LOGOUT:
       return {
         ...state,
         isRequesting: false,
         isUserLoggedIn: false,
-      }
+      };
 
     default:
-      return state
+      return state;
   }
-}
-
+};

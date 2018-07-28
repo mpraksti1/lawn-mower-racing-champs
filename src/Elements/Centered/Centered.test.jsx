@@ -1,6 +1,6 @@
 import React from 'react';
-import Centered from '.';
 import { shallow } from 'enzyme';
+import Centered from '.';
 
 it('renders without crashing', () => {
   shallow(<Centered />);

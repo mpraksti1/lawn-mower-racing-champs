@@ -4,13 +4,13 @@ const topToBottom = keyframes`
   0% {transform: translateY(50%);}
   50% {transform: translateY(0%);}
   100% {transform: translateY(-100%);}
-`
+`;
 
 const bottomToTop = keyframes`
   0% {transform: translateY(-50%);}
   50% {transform: translateY(0%);}
   100% {transform: translateY(100%);}
-`
+`;
 
 const StyledDiv = styled.div`
   position: absolute;
@@ -68,7 +68,7 @@ const StyledDiv = styled.div`
       }
     }
   }
-`
+`;
 
 StyledDiv.displayName = 'LoaderStyled';
 

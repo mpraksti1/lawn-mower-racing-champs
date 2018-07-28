@@ -1,6 +1,6 @@
 import React from 'react';
-import BaseForm from '.';
 import { shallow } from 'enzyme';
+import BaseForm from '.';
 
 it('renders without crashing', () => {
   shallow(<BaseForm />);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { withAlert } from 'react-alert';
 import { Formik, Field, Form } from 'formik';
@@ -27,44 +28,15 @@ const RegisterSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const RegistrationForm = props => (
-  <BaseForm>
-    <Formik
-      initialValues={{
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        confirm_password: '',
-      }}
-      validationSchema={RegisterSchema}
-      onSubmit={async user => {
-        console.log(props);
-        try {
-          const registerResult = await props.register(user);
-          if(registerResult.success) {
-            console.log('RegisterResult', registerResult);
-            props.history.push('/');
-          }
-          else {
-            props.alert.error(registerResult.error.message);
-          }
-        } catch(error) {
-          props.alert.error(error.message);
-        }
-      }}
-      component={MyForm}
-    />
-  </BaseForm>
-);
-
 const MyForm = ({ touched, errors }) => (
   <div>
     <Text xlg sans spaceAbove block>Welcome to the LMRC</Text>
-    <Text sm thin spaceBelow block>Fill in the form below for access to a personalized roster of your favorite RCLM athletes!</Text>
+    <Text sm thin spaceBelow block>
+      Fill in the form below for access to a personalized roster of your favorite RCLM athletes!
+    </Text>
     <Form>
       <div className="icon-input">
-        <PersonIcon />  
+        <PersonIcon />
         <Field type="text" name="first_name" placeholder="First Name" />
       </div>
       {errors.first_name && touched.first_name && (
@@ -102,5 +74,50 @@ const MyForm = ({ touched, errors }) => (
     </Form>
   </div>
 );
+
+const RegistrationForm = props => (
+  <BaseForm>
+    <Formik
+      initialValues={{
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        confirm_password: '',
+      }}
+      validationSchema={RegisterSchema}
+      onSubmit={async (user) => {
+        const { register } = props;
+        try {
+          const registerResult = await register(user);
+          if (registerResult.success) {
+            props.history.push('/');
+          } else {
+            props.alert.error(registerResult.error.message);
+          }
+        } catch (error) {
+          props.alert.error(error.message);
+        }
+      }}
+      component={MyForm}
+    />
+  </BaseForm>
+);
+
+
+MyForm.propTypes = {
+  // eslint-disable-next-line
+  errors: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  touched: PropTypes.object.isRequired,
+};
+
+RegistrationForm.propTypes = {
+  // eslint-disable-next-line
+  history: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  alert: PropTypes.object.isRequired,
+  register: PropTypes.func.isRequired,
+};
 
 export default withAlert(RegistrationForm);

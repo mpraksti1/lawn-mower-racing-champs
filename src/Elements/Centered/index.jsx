@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import StyledDiv from './styles';
 
-export default ({children}) => {
-  return (
-    <StyledDiv>
-      {children}
-    </StyledDiv>
-  )
-}
+const Centered = ({ children }) => (
+  <StyledDiv>
+    {children}
+  </StyledDiv>
+);
+
+Centered.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Centered;

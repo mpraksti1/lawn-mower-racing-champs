@@ -8,16 +8,17 @@ import {
   register,
 } from '../../Store/Actions/Auth';
 
-const Auth = ({registerFunc, loginFunc, isRequesting}) => (
+const Auth = ({ registerFunc, loginFunc, isRequesting }) => (
   <div>
     <BGVideo url="/assets/video/bgvid.mp4" dark />
-    <FormModal register={registerFunc} login={loginFunc} isRequesting={isRequesting}/>
+    <FormModal register={registerFunc} login={loginFunc} isRequesting={isRequesting} />
   </div>
 );
 
 Auth.propTypes = {
   loginFunc: PropTypes.func.isRequired,
   registerFunc: PropTypes.func.isRequired,
+  isRequesting: PropTypes.bool.isRequired,
 };
 
 const mapDispatchToProps = {

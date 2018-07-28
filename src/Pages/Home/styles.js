@@ -5,11 +5,11 @@ const StyledDiv = styled.div`
   display: grid;
   grid-column-gap: 1px;
   grid-row-gap: 1px;
-  margin-top: ${({theme}) => theme.baseSizeUnit * 2}px;
+  margin-top: ${({ theme }) => theme.baseSizeUnit * 2}px;
   background: linear-gradient(
     to right,
-    ${({theme}) => theme.colors.green},
-    ${({theme}) => theme.colors.yellow}
+    ${({ theme }) => theme.colors.green},
+    ${({ theme }) => theme.colors.yellow}
   );
   padding: 2px;
 
@@ -18,10 +18,10 @@ const StyledDiv = styled.div`
   }
 
   div {
-    background: ${({theme}) => theme.colors.darkGray};
-    padding: ${({theme}) => theme.baseSizeUnit * 2}px;
+    background: ${({ theme }) => theme.colors.darkGray};
+    padding: ${({ theme }) => theme.baseSizeUnit * 2}px;
     border-radius: 2px;
   }
-`
+`;
 
 export default StyledDiv;

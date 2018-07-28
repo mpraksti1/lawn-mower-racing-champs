@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 import AppHeader from '../../Components/AppHeader';
-import { Provider as AlertProvider } from "react-alert"
-import AlertTemplate from 'react-alert-template-basic'
 import Auth from '../Auth';
 import Site from '../Site';
 import StyledDiv from './styles';
@@ -13,7 +13,7 @@ const options = {
   timeout: 5000,
   offset: '30px',
   transition: 'scale',
-}
+};
 
 const App = () => (
   <AlertProvider template={AlertTemplate} {...options}>
