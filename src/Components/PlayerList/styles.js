@@ -11,9 +11,9 @@ export const StyledTable = styled.table`
 
   thead {
     display: none;
-    color: ${({ theme }) => theme.colors.darkGray};
+    color: ${({ theme }) => theme.colors.white};
     background: ${({ theme }) => theme.colors.green};
-    border-bottom: 2px solid ${({ theme }) => theme.colors.darkGray};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.white};
     padding: ${({ theme }) => theme.baseSizeUnit}px 0;
     
     @media screen and (min-width: 768px) {
@@ -36,7 +36,7 @@ export const StyledTable = styled.table`
       padding: ${({ theme }) => theme.baseSizeUnit / 2}px;
 
       &:nth-child(odd) {
-        background: ${({ theme }) => theme.colors.gray};
+        background: ${({ theme }) => theme.colors.darkGreen};
       }
     }
   }
@@ -53,10 +53,11 @@ export const StyledTable = styled.table`
   }
 
   td {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.green};
+    color: ${({ theme }) => theme.colors.white};
     display: block;
     text-align: right;
     font-size: 13px;
-    border-bottom: 1px dotted ${({ theme }) => theme.colors.white};
     
     &:nth-child(odd) {
       background: ${({ theme }) => theme.colors.darkGreen};
@@ -89,8 +90,9 @@ export const StyledTable = styled.table`
 
   .profile-pic {
     img {
-      height: 20px;
+      height: 30px;
       border-radius: 50%;
+      vertical-align: middle;
     }
 
     @media screen and (max-width: 767px) {
@@ -112,8 +114,8 @@ export const StyledTable = styled.table`
 
     @media screen and (max-width: 767px) {
       position: absolute;
-      top: ${({ theme }) => theme.baseSizeUnit}px;
-      right: ${({ theme }) => theme.baseSizeUnit}px;
+      top: 0;
+      right: 0;
     }
   }
 `;

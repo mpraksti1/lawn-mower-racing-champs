@@ -72,7 +72,7 @@ class PlayerList extends Component {
     const { headerNames } = this.props;
     const headerRowColumns = headerNames.map((colName) => {
       const replacedUnderscore = colName.replace(/_/g, ' ');
-
+      console.log('key1', colName);
       return <th key={colName}>{ replacedUnderscore }</th>;
     });
 
@@ -103,10 +103,12 @@ class PlayerList extends Component {
             const playerTrait = player[columnName];
             const label = columnName.replace(/_/g, ' ');
 
+            console.log('key2', i);
             // eslint-disable-next-line
             return <td key={i} data-label={label}>{playerTrait}</td>;
           });
 
+          console.log('key3', player.id);
           return (
             <tr key={player.id}>
               <td className="profile-pic">
@@ -151,8 +153,16 @@ class PlayerList extends Component {
     const { deleteModalShowing } = this.state;
     return (
       <div>
+        <StyledTable className="responsive-table">
+          <thead>
+            {this.renderHeaderRow()}
+          </thead>
+          <tbody>
+            {this.renderRows()}
+          </tbody>
+        </StyledTable>
         { deleteModalShowing && (
-          <Centered>
+          <Centered fixed>
             <StyledDiv>
               <Text lg sans spaceAround block gray>Are you sure?</Text>
               <div>
@@ -162,14 +172,6 @@ class PlayerList extends Component {
             </StyledDiv>
           </Centered>
         )}
-        <StyledTable className="responsive-table">
-          <thead>
-            {this.renderHeaderRow()}
-          </thead>
-          <tbody>
-            {this.renderRows()}
-          </tbody>
-        </StyledTable>
       </div>
     );
   }
