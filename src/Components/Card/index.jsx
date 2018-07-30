@@ -6,8 +6,8 @@ import StyledDiv from './styles';
 const Card = ({ children, title, copy }) => (
   <StyledDiv>
     <div className="icon">{children}</div>
-    <Text sans block alignCenter xlg green>{title}</Text>
-    <Text sans block alignCenter thin spaceAround>{copy}</Text>
+    <Text className="title" sans block alignCenter xlg green>{title}</Text>
+    <Text className="copy" sans block alignCenter thin spaceAround>{copy}</Text>
   </StyledDiv>
 );
 

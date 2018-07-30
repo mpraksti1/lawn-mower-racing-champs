@@ -70,8 +70,6 @@ const LoginForm = props => (
 
 MyForm.propTypes = {
   // eslint-disable-next-line
-  history: PropTypes.object.isRequired,
-  // eslint-disable-next-line
   errors: PropTypes.object.isRequired,
   // eslint-disable-next-line
   touched: PropTypes.object.isRequired,

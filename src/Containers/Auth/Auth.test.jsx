@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Auth from '.';
+import { Auth } from '.';
 
 it('renders without crashing', () => {
-  shallow(<Auth />);
+  shallow(<Auth loginFunc={() => {}} registerFunc={() => {}} isRequesting={false} />);
 });

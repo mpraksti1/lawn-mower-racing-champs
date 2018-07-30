@@ -2,6 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Text from '.';
 
-it('renders without crashing', () => {
-  shallow(<Text />);
+describe('Text component', () => {
+  it('renders without crashing', () => {
+    shallow(<Text>Text!</Text>);
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Text>Text!</Text>);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Route,
   Switch,
@@ -15,85 +15,73 @@ import RegisterForm from '../../Forms/Register';
 import PlayerForm from '../../Forms/Player';
 import StyledDiv from './styles';
 
-class FormModal extends Component {
-  constructor(props) {
-    super(props);
+const FormModal = (props) => {
+  const {
+    login,
+    register,
+    createPlayer,
+    isRequesting,
+    location: { pathname },
+  } = props;
 
-    this.renderTabs = this.renderTabs.bind(this);
-  }
+  const checkTabStatus = () => pathname !== '/player/new' && !isRequesting;
 
-  renderTabs() {
-    const { location: { pathname }, isRequesting } = this.props;
-
-    if (pathname !== '/player/new' && !isRequesting) {
-      return (
-        <div className="tab-wrapper">
-          <NavLink to="/auth/register" className="tab-link area-left">
-            <LockIcon />
-            <Text thin sm sans gray>Register</Text>
-          </NavLink>
-          <NavLink to="/auth/login" className="tab-link area-right">
-            <CreateIcon />
-            <Text thin sm sans gray>Login</Text>
-          </NavLink>
-        </div>
-      );
-    }
-    return null;
-  }
-
-  render() {
-    const {
-      login,
-      register,
-      createPlayer,
-      isRequesting,
-    } = this.props;
-
-    return (
-      <StyledDiv>
-        {this.renderTabs()}
-        {
-          isRequesting
-            ? <Loader />
-            : (
-              <div className="forms-area">
-                <Switch>
-                  <Route
-                    path="/auth/login"
-                    render={props => (
-                      <LoginForm
-                        {...props}
-                        login={login}
-                      />
-                    )}
-                  />
-                  <Route
-                    path="/auth/register"
-                    render={props => (
-                      <RegisterForm
-                        {...props}
-                        register={register}
-                      />
-                    )}
-                  />
-                  <Route
-                    path="/player/new"
-                    render={props => (
-                      <PlayerForm
-                        {...props}
-                        createPlayer={createPlayer}
-                      />
-                    )}
-                  />
-                </Switch>
-              </div>
-            )
-        }
-      </StyledDiv>
-    );
-  }
-}
+  return (
+    <StyledDiv {...props}>
+      {
+        checkTabStatus() && (
+          <div className="tab-wrapper">
+            <NavLink to="/auth/register" className="tab-link area-left">
+              <LockIcon />
+              <Text {...props} thin sm sans gray>Register</Text>
+            </NavLink>
+            <NavLink to="/auth/login" className="tab-link area-right">
+              <CreateIcon />
+              <Text {...props} thin sm sans gray>Login</Text>
+            </NavLink>
+          </div>
+        )
+      }
+      {
+        isRequesting
+          ? <Loader />
+          : (
+            <div className="forms-area">
+              <Switch>
+                <Route
+                  path="/auth/login"
+                  render={() => (
+                    <LoginForm
+                      {...props}
+                      login={login}
+                    />
+                  )}
+                />
+                <Route
+                  path="/auth/register"
+                  render={() => (
+                    <RegisterForm
+                      {...props}
+                      register={register}
+                    />
+                  )}
+                />
+                <Route
+                  path="/player/new"
+                  render={() => (
+                    <PlayerForm
+                      {...props}
+                      createPlayer={createPlayer}
+                    />
+                  )}
+                />
+              </Switch>
+            </div>
+          )
+      }
+    </StyledDiv>
+  );
+};
 
 FormModal.defaultProps = {
   login: () => {},

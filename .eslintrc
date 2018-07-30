@@ -6,5 +6,16 @@
   },
   "rules": {    
     "react/jsx-one-expression-per-line": "off"
+  },
+  "globals": {
+    "React": false,
+    "shallow": false,
+    "render": false,
+    "shallowWithTheme": false,
+    "mount": false,
+    "sinon": false,
+    "fakeHistory": false,
+    "theme": false,
+    "localStorage": false
   }
 }

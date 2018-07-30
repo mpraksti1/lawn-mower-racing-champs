@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Centered component matches snapshot 1`] = `
+<CenteredStyled>
+  <p>
+    A centered thing
+  </p>
+</CenteredStyled>
+`;

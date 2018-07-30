@@ -8,7 +8,7 @@ import {
   register,
 } from '../../Store/Actions/Auth';
 
-const Auth = ({ registerFunc, loginFunc, isRequesting }) => (
+export const Auth = ({ registerFunc, loginFunc, isRequesting }) => (
   <div>
     <BGVideo url="/assets/video/bgvid.mp4" dark />
     <FormModal register={registerFunc} login={loginFunc} isRequesting={isRequesting} />

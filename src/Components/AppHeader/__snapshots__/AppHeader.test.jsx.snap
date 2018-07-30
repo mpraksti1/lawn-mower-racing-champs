@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App header component matches snapshot 1`] = `
+<AppHeaderStyled>
+  <p
+    className="logo"
+  >
+    <img
+      alt="logo"
+      className="logo-img"
+      src="/assets/images/logo.png"
+    />
+    <span
+      className="logo-text"
+    >
+      LMRC
+    </span>
+  </p>
+  <nav
+    className="nav"
+  >
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="nav-link"
+      exact={true}
+      to="/"
+    >
+      Home
+    </NavLink>
+    <NavLink
+      activeClassName="active"
+      aria-current="page"
+      className="nav-link"
+      to="/roster"
+    >
+      Roster
+    </NavLink>
+    <Button
+      className="nav-link logout"
+      inline={true}
+      islink={true}
+      onClick={[Function]}
+    >
+      Logout
+    </Button>
+  </nav>
+</AppHeaderStyled>
+`;

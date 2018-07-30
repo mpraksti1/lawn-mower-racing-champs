@@ -70,10 +70,10 @@ class PlayerList extends Component {
 
   renderHeaderRow() {
     const { headerNames } = this.props;
-    const headerRowColumns = headerNames.map((colName) => {
+    const headerRowColumns = headerNames.map((colName, i) => {
       const replacedUnderscore = colName.replace(/_/g, ' ');
-      console.log('key1', colName);
-      return <th key={colName}>{ replacedUnderscore }</th>;
+      // eslint-disable-next-line
+      return <th key={i.toString()}>{ replacedUnderscore }</th>;
     });
 
     return (
@@ -102,13 +102,10 @@ class PlayerList extends Component {
           const columns = headerNames.map((columnName, i) => {
             const playerTrait = player[columnName];
             const label = columnName.replace(/_/g, ' ');
-
-            console.log('key2', i);
             // eslint-disable-next-line
-            return <td key={i} data-label={label}>{playerTrait}</td>;
+            return <td key={i.toString()} data-label={label}>{playerTrait}</td>;
           });
 
-          console.log('key3', player.id);
           return (
             <tr key={player.id}>
               <td className="profile-pic">
@@ -153,7 +150,7 @@ class PlayerList extends Component {
     const { deleteModalShowing } = this.state;
     return (
       <div>
-        <StyledTable className="responsive-table">
+        <StyledTable {...this.props} className="responsive-table">
           <thead>
             {this.renderHeaderRow()}
           </thead>

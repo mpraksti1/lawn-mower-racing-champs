@@ -3,5 +3,5 @@ import { shallow } from 'enzyme';
 import Player from '.';
 
 it('renders without crashing', () => {
-  shallow(<Player />);
+  shallow(<Player createPlayer={() => {}} isRequesting={false} />);
 });

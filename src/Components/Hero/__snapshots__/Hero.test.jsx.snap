@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero component matches snapshot 1`] = `
+<styled.div
+  imgUrl="http://via.placeholder.com/350x150"
+>
+  <Centered>
+    <p>
+      Hero!
+    </p>
+  </Centered>
+</styled.div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BG video component matches snapshot 1`] = `
+<VideoStyled
+  dark={false}
+  url="http://google.com"
+>
+  <video
+    autoPlay={true}
+    id="myVideo"
+    loop={true}
+    muted={true}
+  >
+    <source
+      src="http://google.com"
+      type="video/mp4"
+    />
+  </video>
+</VideoStyled>
+`;

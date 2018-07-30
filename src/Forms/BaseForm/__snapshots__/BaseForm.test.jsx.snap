@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Base form component matches snapshot 1`] = `
+<BaseFormStyled>
+  <form>
+    <p>
+      A form goes here
+    </p>
+  </form>
+</BaseFormStyled>
+`;

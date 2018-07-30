@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Roster from '.';
 
-it('renders without crashing', () => {
-  shallow(<Roster />);
+describe('Roster page', () => {
+  it('renders without crashing', () => {
+    shallow(<Roster retrievePlayers={() => {}} deletePlayer={() => {}} players={[]} />);
+  });
 });
