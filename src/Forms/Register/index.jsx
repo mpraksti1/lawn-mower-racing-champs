@@ -100,7 +100,7 @@ const MyForm = ({ touched, errors }) => (
   </div>
 );
 
-export const RegistrationForm = props => (
+export const RegisterForm = props => (
   <BaseForm>
     <Formik
       initialValues={{
@@ -137,7 +137,7 @@ MyForm.propTypes = {
   touched: PropTypes.object.isRequired,
 };
 
-RegistrationForm.propTypes = {
+RegisterForm.propTypes = {
   // eslint-disable-next-line
   history: PropTypes.object.isRequired,
   // eslint-disable-next-line
@@ -145,4 +145,4 @@ RegistrationForm.propTypes = {
   register: PropTypes.func.isRequired,
 };
 
-export default withAlert(RegistrationForm);
+export default withAlert(RegisterForm);

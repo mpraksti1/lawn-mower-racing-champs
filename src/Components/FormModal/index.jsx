@@ -10,9 +10,9 @@ import LockIcon from 'react-icons/lib/md/lock';
 import CreateIcon from 'react-icons/lib/md/create';
 import Text from '../../Elements/Text';
 import Loader from '../../Elements/Loader';
-import LoginForm from '../../Forms/Login';
-import RegisterForm from '../../Forms/Register';
-import PlayerForm from '../../Forms/Player';
+import Login from '../../Forms/Login';
+import Register from '../../Forms/Register';
+import Player from '../../Forms/Player';
 import StyledDiv from './styles';
 
 const FormModal = (props) => {
@@ -51,7 +51,7 @@ const FormModal = (props) => {
                 <Route
                   path="/auth/login"
                   render={() => (
-                    <LoginForm
+                    <Login
                       {...props}
                       login={login}
                     />
@@ -60,7 +60,7 @@ const FormModal = (props) => {
                 <Route
                   path="/auth/register"
                   render={() => (
-                    <RegisterForm
+                    <Register
                       {...props}
                       register={register}
                     />
@@ -69,7 +69,7 @@ const FormModal = (props) => {
                 <Route
                   path="/player/new"
                   render={() => (
-                    <PlayerForm
+                    <Player
                       {...props}
                       createPlayer={createPlayer}
                     />

@@ -1,10 +1,10 @@
-import { RegistrationForm } from '.';
+import { RegisterForm } from '.';
 import theme from '../../theme';
 
 describe('Register form component', () => {
   it('renders without crashing', () => {
     shallow(
-      <RegistrationForm
+      <RegisterForm
         history={fakeHistory}
         register={() => {}}
         alert={{}}
@@ -14,7 +14,7 @@ describe('Register form component', () => {
 
   it('matches snapshot', () => {
     const wrapper = shallowWithTheme(
-      <RegistrationForm
+      <RegisterForm
         history={fakeHistory}
         register={() => {}}
         alert={{}}
