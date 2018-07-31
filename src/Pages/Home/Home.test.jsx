@@ -1,7 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import Home from '.';
 
-it('renders without crashing', () => {
-  shallow(<Home />);
+describe('Home page component', () => {
+  it('renders without crashing', () => {
+    shallow(<Home />);
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Home />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

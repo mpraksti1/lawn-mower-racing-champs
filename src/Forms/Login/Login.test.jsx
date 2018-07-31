@@ -1,7 +1,26 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Login from '.';
+import { LoginForm } from '.';
+import theme from '../../theme';
 
-it('renders without crashing', () => {
-  shallow(<Login />);
+describe('Login component', () => {
+  it('renders without crashing', () => {
+    shallow(
+      <LoginForm
+        history={fakeHistory}
+        login={() => {}}
+        alert={{}}
+      />,
+    );
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallowWithTheme(
+      <LoginForm
+        history={fakeHistory}
+        login={() => {}}
+        alert={{}}
+      />, theme,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

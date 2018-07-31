@@ -7,8 +7,12 @@ const StyledForm = styled.div`
     padding: 16px;
     width: 100%;
     border: none;
-    border-bottom: 1px solid #ccc;
     border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.gray};
+    }
   }
 
   select {
@@ -19,6 +23,7 @@ const StyledForm = styled.div`
     height: 36px;
     text-align: center;
     padding: 0px 16px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
   }
 
   form {

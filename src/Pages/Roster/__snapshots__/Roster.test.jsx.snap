@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Roster page component matches snapshot 1`] = `
+<div
+  className="roster-page"
+>
+  <Text
+    block={true}
+    sans={true}
+    spaceAbove={true}
+    xlg={true}
+  >
+    Your LMRC Roster:
+  </Text>
+  <Text
+    block={true}
+    sm={true}
+    spaceBelow={true}
+    thin={true}
+  >
+    Below are the players you've picked so far
+  </Text>
+  <WithAlert(PlayerList)
+    deletePlayer={[Function]}
+    headerNames={
+      Array [
+        "first_name",
+        "last_name",
+        "rating",
+        "handedness",
+      ]
+    }
+    players={Array []}
+    retrievePlayers={[Function]}
+  />
+  <Button
+    outline={true}
+    spaceAbove={true}
+  >
+    <Link
+      replace={false}
+      to="/player/new"
+    >
+      <Text
+        green={true}
+        sm={true}
+      >
+        Add New
+      </Text>
+    </Link>
+  </Button>
+</div>
+`;

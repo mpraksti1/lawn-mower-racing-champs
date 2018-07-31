@@ -1,7 +1,26 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Register from '.';
+import { RegistrationForm } from '.';
+import theme from '../../theme';
 
-it('renders without crashing', () => {
-  shallow(<Register />);
+describe('Register form component', () => {
+  it('renders without crashing', () => {
+    shallow(
+      <RegistrationForm
+        history={fakeHistory}
+        register={() => {}}
+        alert={{}}
+      />,
+    );
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallowWithTheme(
+      <RegistrationForm
+        history={fakeHistory}
+        register={() => {}}
+        alert={{}}
+      />, theme,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

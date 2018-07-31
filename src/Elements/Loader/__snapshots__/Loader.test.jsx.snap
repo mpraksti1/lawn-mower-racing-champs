@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader component matches snapshot 1`] = `
+<LoaderStyled>
+  <div
+    className="loader"
+  >
+    <div
+      className="slide-section-container"
+    >
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+      <div
+        className="slide-section"
+      >
+         
+      </div>
+    </div>
+  </div>
+</LoaderStyled>
+`;

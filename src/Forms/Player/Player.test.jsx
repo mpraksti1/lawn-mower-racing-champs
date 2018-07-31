@@ -1,7 +1,26 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import Player from '.';
+import { PlayerForm } from '.';
+import theme from '../../theme';
 
-it('renders without crashing', () => {
-  shallow(<Player />);
+describe('Player form component', () => {
+  it('renders without crashing', () => {
+    shallow(
+      <PlayerForm
+        history={fakeHistory}
+        createPlayer={() => {}}
+        alert={{}}
+      />,
+    );
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallowWithTheme(
+      <PlayerForm
+        history={fakeHistory}
+        createPlayer={() => {}}
+        alert={{}}
+      />, theme,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

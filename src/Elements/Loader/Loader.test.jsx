@@ -1,7 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import Loader from '.';
 
-it('renders without crashing', () => {
-  shallow(<Loader />);
+describe('Loader component', () => {
+  it('renders without crashing', () => {
+    shallow(<Loader />);
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallow(<Loader />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

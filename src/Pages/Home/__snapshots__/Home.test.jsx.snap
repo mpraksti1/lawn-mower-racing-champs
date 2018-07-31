@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page component matches snapshot 1`] = `
+<div>
+  <Hero
+    imgUrl=""
+  >
+    <Text
+      block={true}
+      sans={true}
+      spaceBelow={true}
+      xxlg={true}
+    >
+      Welcome to the Lawn Mowing Racing Championships!
+    </Text>
+    <Text
+      block={true}
+      lg={true}
+      sans={true}
+      thin={true}
+    >
+      Add and remove racers from the roster at will, their fate is in your hands.
+    </Text>
+  </Hero>
+  <styled.div>
+    <Card
+      bg="/assets/images/home-item-1.jpg"
+      copy="The fastest lawn mowers this side of the river, guarunteed."
+      key="Speed!"
+      title="Speed!"
+    >
+      <MdError />
+    </Card>
+    <Card
+      bg="/assets/images/home-item-2.jpg"
+      copy="The largest group of LMRC enthusiests online."
+      key="Community!"
+      title="Community!"
+    >
+      <MdError />
+    </Card>
+    <Card
+      bg="/assets/images/home-item-3.jpg"
+      copy="This is full contact Lawn mower racing at it's best."
+      key="Danger!"
+      title="Danger!"
+    >
+      <MdError />
+    </Card>
+  </styled.div>
+</div>
+`;

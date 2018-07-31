@@ -17,14 +17,14 @@ const players = [{
   id: '5b5ea589310d217ff3901607',
 }];
 
-describe('The playerlist!', () => {
+describe('Player list component', () => {
   it('renders without crashing', () => {
-    shallow(<PlayerList />);
+    shallow(<PlayerList alert="donuts" />);
   });
 
   it('matches snapshot', () => {
-    const wrapper = mountWithTheme(
-      <PlayerList headerNames={headerNames} players={players} />,
+    const wrapper = renderWithTheme(
+      <PlayerList headerNames={headerNames} players={players} alert="donuts" />,
       theme,
     );
 

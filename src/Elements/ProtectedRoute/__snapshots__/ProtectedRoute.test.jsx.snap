@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Protected route component matches snapshot 1`] = `
+<Route
+  component={[Function]}
+/>
+`;
+
+exports[`Protected route component matches snapshot 2`] = `
+<Redirect
+  push={false}
+  to="/auth/login"
+/>
+`;

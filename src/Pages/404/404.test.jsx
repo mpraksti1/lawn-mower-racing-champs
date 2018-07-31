@@ -1,7 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import ErrorPage from '.';
 
-it('renders without crashing', () => {
-  shallow(<ErrorPage />);
+describe('404 component', () => {
+  it('renders without crashing', () => {
+    shallow(<ErrorPage />);
+  });
+
+  it('matches snapshot', () => {
+    const wrapper = shallow(<ErrorPage />);
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

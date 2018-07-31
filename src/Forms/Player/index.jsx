@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { withAlert } from 'react-alert';
+import { Formik, Field, Form } from 'formik';
 import PersonIcon from 'react-icons/lib/md/person';
 import StarIcon from 'react-icons/lib/md/star';
 import HandIcon from 'react-icons/lib/md/pan-tool';
-import { Formik, Field, Form } from 'formik';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
 import Text from '../../Elements/Text';
@@ -19,7 +19,8 @@ const PlayerrSchema = Yup.object().shape({
     .required('Required'),
   rating: Yup.number()
     .min(1)
-    .max(10000),
+    .max(10000)
+    .required('Required'),
   handedness: Yup.string()
     .oneOf(['right', 'left'], 'Invalid Handedness')
     .required('Required'),
@@ -35,7 +36,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         </label>
         <div className="icon-input">
           <PersonIcon />
-          <Field type="text" name="first_name" placeholder="eg. Alex" id="firstName" />
+          <Field type="text" name="first_name" placeholder="Alex" id="firstName" />
         </div>
         {errors.first_name && touched.first_name && (
           <Text sm red className="field-error">{errors.first_name}</Text>
@@ -47,7 +48,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         </label>
         <div className="icon-input">
           <PersonIcon />
-          <Field type="text" name="last_name" placeholder="eg. Johnson" id="lastName" />
+          <Field type="text" name="last_name" placeholder="Johnson" id="lastName" />
         </div>
         {errors.last_name && touched.last_name && (
           <Text sm red className="field-error">{errors.last_name}</Text>
@@ -59,7 +60,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         </label>
         <div className="icon-input">
           <StarIcon />
-          <Field type="number" name="rating" id="rating" placeholder="How good are they?" />
+          <Field type="text" name="rating" id="rating" placeholder="8000" />
         </div>
         {errors.rating && touched.rating && (
           <Text sm red className="field-error">{errors.rating}</Text>
@@ -85,13 +86,13 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
   </div>
 );
 
-const PlayerForm = props => (
+export const PlayerForm = props => (
   <BaseForm>
     <Formik
       initialValues={{
         first_name: '',
         last_name: '',
-        rating: '1',
+        rating: '',
         handedness: 'right',
       }}
       validationSchema={PlayerrSchema}

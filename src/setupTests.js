@@ -25,7 +25,7 @@ const shallowWithTheme = (tree, baseTheme) => {
   return shallow(tree, { context });
 };
 
-const mountWithTheme = (tree, baseTheme) => {
+const renderWithTheme = (tree, baseTheme) => {
   // eslint-disable-next-line
   const context = shallow(<ThemeProvider theme={baseTheme} />)
     .instance()
@@ -37,7 +37,20 @@ const mountWithTheme = (tree, baseTheme) => {
   });
 };
 
+const mountWithTheme = (tree, baseTheme) => {
+  // eslint-disable-next-line
+  const context = shallow(<ThemeProvider theme={baseTheme} />)
+    .instance()
+    .getChildContext();
+
+  return mount(tree, {
+    context,
+    childContextTypes: ThemeProvider.childContextTypes,
+  });
+};
+
 global.shallowWithTheme = shallowWithTheme;
+global.renderWithTheme = renderWithTheme;
 global.mountWithTheme = mountWithTheme;
 global.fakeHistory = history;
 global.theme = theme;

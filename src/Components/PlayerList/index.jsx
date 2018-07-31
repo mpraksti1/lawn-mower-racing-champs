@@ -113,6 +113,8 @@ class PlayerList extends Component {
               </td>
               {columns}
               <td className="delete-player">
+                { /* Using a data attr here because cypress doesn't like being passed any
+                  of the other methods of binding 'this' to the current iteration */ }
                 { /* eslint-disable */ }
                 <Button className="delete" data-player={player.id} islink onClick={this.setSelectedPlayer}>
                 { /* eslint-enable */ }

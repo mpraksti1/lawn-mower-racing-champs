@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 component matches snapshot 1`] = `
+<Centered>
+  <Text>
+    Whoops! No page to be found here.
+  </Text>
+</Centered>
+`;

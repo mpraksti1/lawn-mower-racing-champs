@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The playerlist! matches snapshot 1`] = `
+exports[`Player list component matches snapshot 1`] = `
 <div>
   <table
-    class="responsive-table sc-bxivhb jElrK"
+    class="responsive-table sc-bxivhb eiKaoT"
   >
     <thead>
       <tr>
@@ -63,7 +63,8 @@ exports[`The playerlist! matches snapshot 1`] = `
           class="delete-player"
         >
           <button
-            class="sc-htpNat jrDrRM"
+            class="delete sc-htpNat jrDrRM"
+            data-player="5b5cf8b4310d217ff39015fc"
           >
             <svg
               fill="currentColor"
@@ -119,7 +120,8 @@ exports[`The playerlist! matches snapshot 1`] = `
           class="delete-player"
         >
           <button
-            class="sc-htpNat jrDrRM"
+            class="delete sc-htpNat jrDrRM"
+            data-player="5b5ea589310d217ff3901607"
           >
             <svg
               fill="currentColor"

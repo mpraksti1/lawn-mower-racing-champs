@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player page component matches snapshot 1`] = `
+<div
+  className="player-page"
+>
+  <BGVideo
+    dark={true}
+    url="/assets/video/bgvid.mp4"
+  />
+  <withRouter(FormModal)
+    createPlayer={[Function]}
+    isRequesting={false}
+  />
+</div>
+`;

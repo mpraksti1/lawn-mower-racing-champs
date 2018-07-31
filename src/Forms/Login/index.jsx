@@ -40,7 +40,7 @@ const MyForm = ({ errors, touched }) => (
         </label>
         <div className="icon-input">
           <EyeIcon />
-          <Field type="password" name="password" id="password" placeholder="I won't tell anyone, promise" />
+          <Field type="password" name="password" id="password" placeholder="********" />
         </div>
         {errors.password && touched.password && (
           <Text sm red className="field-error">{errors.password}</Text>
@@ -51,7 +51,7 @@ const MyForm = ({ errors, touched }) => (
   </div>
 );
 
-const LoginForm = props => (
+export const LoginForm = props => (
   <BaseForm>
     <Formik
       initialValues={{
