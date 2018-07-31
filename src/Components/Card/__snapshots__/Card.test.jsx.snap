@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card component matches snapshot 1`] = `
-<styled.div>
+<styled.div
+  bg="http://www.abc.net.au/news/image/7202178-3x2-940x627.jpg"
+  copy="A really good card!"
+  title="I am a card!"
+>
   <div
     className="icon"
   >
@@ -11,7 +15,6 @@ exports[`Card component matches snapshot 1`] = `
     alignCenter={true}
     block={true}
     className="title"
-    green={true}
     sans={true}
     xlg={true}
   >

@@ -19,7 +19,7 @@ const PlayerrSchema = Yup.object().shape({
     .required('Required'),
   rating: Yup.number()
     .min(1)
-    .max(10),
+    .max(10000),
   handedness: Yup.string()
     .oneOf(['right', 'left'], 'Invalid Handedness')
     .required('Required'),
@@ -29,49 +29,58 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
   <div>
     <Text xlg thin sans spaceAround block>Add a racer:</Text>
     <Form>
-      <div className="icon-input">
-        <PersonIcon />
-        <Field type="text" name="first_name" placeholder="Fist Name" />
+      <div className="field-wrapper">
+        <label htmlFor="firstName">
+          <Text xsm thin sans spaceBelow block>First Name</Text>
+        </label>
+        <div className="icon-input">
+          <PersonIcon />
+          <Field type="text" name="first_name" placeholder="eg. Alex" id="firstName" />
+        </div>
+        {errors.first_name && touched.first_name && (
+          <Text sm red className="field-error">{errors.first_name}</Text>
+        )}
       </div>
-      {errors.first_name && touched.first_name && (
-        <Text sm red className="field-error">{errors.first_name}</Text>
-      )}
-      <div className="icon-input">
-        <PersonIcon />
-        <Field type="text" name="last_name" placeholder="Last Name" />
+      <div className="field-wrapper">
+        <label htmlFor="lastName">
+          <Text xsm thin sans spaceBelow block>Last Name</Text>
+        </label>
+        <div className="icon-input">
+          <PersonIcon />
+          <Field type="text" name="last_name" placeholder="eg. Johnson" id="lastName" />
+        </div>
+        {errors.last_name && touched.last_name && (
+          <Text sm red className="field-error">{errors.last_name}</Text>
+        )}
       </div>
-      {errors.last_name && touched.last_name && (
-        <Text sm red className="field-error">{errors.last_name}</Text>
-      )}
-      <div className="icon-input">
-        <StarIcon />
-        <Field component="select" name="rating">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </Field>
+      <div className="field-wrapper">
+        <label htmlFor="rating">
+          <Text xsm thin sans spaceBelow block>Rating</Text>
+        </label>
+        <div className="icon-input">
+          <StarIcon />
+          <Field type="number" name="rating" id="rating" placeholder="How good are they?" />
+        </div>
+        {errors.rating && touched.rating && (
+          <Text sm red className="field-error">{errors.rating}</Text>
+        )}
       </div>
-      {errors.rating && touched.rating && (
-        <Text sm red className="field-error">{errors.rating}</Text>
-      )}
-      <div className="icon-input">
-        <HandIcon />
-        <Field component="select" name="handedness">
-          <option value="right">Right</option>
-          <option value="left">Left</option>
-        </Field>
+      <div className="field-wrapper">
+        <label htmlFor="handedness">
+          <Text xsm thin sans spaceBelow block>Handedness</Text>
+        </label>
+        <div className="icon-input">
+          <HandIcon />
+          <Field component="select" name="handedness" id="handedness">
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+          </Field>
+        </div>
+        {errors.handedness && touched.handedness && (
+          <Text sm red className="field-error">{errors.handedness}</Text>
+        )}
       </div>
-      {errors.handedness && touched.handedness && (
-        <Text sm red className="field-error">{errors.handedness}</Text>
-      )}
-      <Button outline type="submit" disabled={isSubmitting}>Submit</Button>
+      <Button outline type="submit" disabled={isSubmitting} id="create">Create</Button>
     </Form>
   </div>
 );

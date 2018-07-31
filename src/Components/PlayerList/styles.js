@@ -110,6 +110,7 @@ export const StyledTable = styled.table`
     svg {
       height: 25px;
       width: 25px;
+      pointer-events: none;
     }
 
     @media screen and (max-width: 767px) {

@@ -22,21 +22,31 @@ const MyForm = ({ errors, touched }) => (
     <Text xlg sans spaceAbove block>Welcome back!</Text>
     <Text sm thin spaceBelow block>Good to see you again!</Text>
     <Form noValidate>
-      <div className="icon-input">
-        <EmailIcon />
-        <Field type="email" name="email" placeholder="E-mail" />
+      <div className="field-wrapper">
+        <label htmlFor="email">
+          <Text xsm thin sans spaceBelow block>Email</Text>
+        </label>
+        <div className="icon-input">
+          <EmailIcon />
+          <Field type="email" name="email" id="email" placeholder="example@test.com" />
+        </div>
+        {errors.email && touched.email && (
+          <Text sm red className="field-error">{errors.email}</Text>
+        )}
       </div>
-      {errors.email && touched.email && (
-        <Text sm red className="field-error">{errors.email}</Text>
-      )}
-      <div className="icon-input">
-        <EyeIcon />
-        <Field type="password" name="password" placeholder="Password" />
+      <div className="field-wrapper">
+        <label htmlFor="password">
+          <Text xsm thin sans spaceBelow block>Password</Text>
+        </label>
+        <div className="icon-input">
+          <EyeIcon />
+          <Field type="password" name="password" id="password" placeholder="I won't tell anyone, promise" />
+        </div>
+        {errors.password && touched.password && (
+          <Text sm red className="field-error">{errors.password}</Text>
+        )}
       </div>
-      {errors.password && touched.password && (
-        <Text sm red className="field-error">{errors.password}</Text>
-      )}
-      <Button outline type="submit">Submit</Button>
+      <Button outline type="submit" id="login">Submit</Button>
     </Form>
   </div>
 );

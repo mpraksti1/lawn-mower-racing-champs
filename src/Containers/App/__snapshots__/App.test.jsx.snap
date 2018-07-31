@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component matches snapshot 1`] = `
+<Provider
+  offset="30px"
+  position="top center"
+  template={[Function]}
+  timeout={5000}
+  transition="scale"
+  type="info"
+  zIndex={100}
+>
+  <AppStyled>
+    <withRouter(Connect(AppHeader))
+      checkAuthStatus={[Function]}
+    />
+    <main>
+      <Switch>
+        <Route
+          component={[Function]}
+          path="/auth"
+        />
+        <Route
+          path="/"
+          render={[Function]}
+        />
+      </Switch>
+    </main>
+  </AppStyled>
+</Provider>
+`;

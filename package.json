@@ -15,6 +15,7 @@
     "classnames": "^2.2.6",
     "connected-react-router": "^4.3.0",
     "css-loader": "0.28.7",
+    "cypress": "^3.0.3",
     "dotenv": "4.0.0",
     "dotenv-expand": "4.2.0",
     "enzyme": "^3.3.0",
@@ -70,8 +71,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
-    "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true"
+    "e2e": "cypress open"
   },
   "jest": {
     "collectCoverageFrom": [

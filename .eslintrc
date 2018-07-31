@@ -5,13 +5,15 @@
     "browser": true
   },
   "rules": {    
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "jsx-a11y/label-has-for": "off"
   },
   "globals": {
     "React": false,
     "shallow": false,
     "render": false,
     "shallowWithTheme": false,
+    "mountWithTheme": false,
     "mount": false,
     "sinon": false,
     "fakeHistory": false,

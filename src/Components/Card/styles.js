@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
+  background: url(${({ bg }) => bg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
   .icon {
     text-align: center;
     

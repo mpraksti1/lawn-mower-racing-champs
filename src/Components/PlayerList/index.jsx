@@ -29,10 +29,10 @@ class PlayerList extends Component {
     this.retrievePlayers();
   }
 
-  setSelectedPlayer(id) {
+  setSelectedPlayer(evt) {
     this.toggleDeleteModal();
     this.setState({
-      selectedPlayer: id,
+      selectedPlayer: evt.target.getAttribute('data-player'),
     });
   }
 
@@ -73,7 +73,7 @@ class PlayerList extends Component {
     const headerRowColumns = headerNames.map((colName, i) => {
       const replacedUnderscore = colName.replace(/_/g, ' ');
       // eslint-disable-next-line
-      return <th key={i.toString()}>{ replacedUnderscore }</th>;
+      return <th key={i}>{ replacedUnderscore }</th>;
     });
 
     return (
@@ -88,35 +88,34 @@ class PlayerList extends Component {
   renderRows() {
     const { headerNames, players } = this.props;
 
-    const generateRandomProfilePic = () => {
-      const rng = () => Math.ceil(Math.random() * 50);
-
-      const rngMW = rng() < 25 ? 'men' : 'women';
-      const randomUser = rng();
-      return `https://randomuser.me/api/portraits/${rngMW}/${randomUser}.jpg`;
+    const generateProfilePic = (i) => {
+      const MW = i % 2 === 0 ? 'men' : 'women';
+      return `https://randomuser.me/api/portraits/${MW}/${i + 1}.jpg`;
     };
 
     if (players.length > 0) {
-      return players.map((player) => {
+      return players.map((player, playersIndex) => {
         if (player) {
-          const columns = headerNames.map((columnName, i) => {
+          const columns = headerNames.map((columnName, columnIndex) => {
             const playerTrait = player[columnName];
             const label = columnName.replace(/_/g, ' ');
             // eslint-disable-next-line
-            return <td key={i.toString()} data-label={label}>{playerTrait}</td>;
+            return <td key={columnIndex} data-label={label}>{playerTrait}</td>;
           });
 
           return (
             <tr key={player.id}>
               <td className="profile-pic">
                 <img
-                  src={generateRandomProfilePic()}
+                  src={generateProfilePic(playersIndex)}
                   alt="icon"
                 />
               </td>
               {columns}
               <td className="delete-player">
-                <Button islink onClick={() => this.setSelectedPlayer(player.id)}>
+                { /* eslint-disable */ }
+                <Button className="delete" data-player={player.id} islink onClick={this.setSelectedPlayer}>
+                { /* eslint-enable */ }
                   <DeleteIcon />
                 </Button>
               </td>
@@ -163,7 +162,7 @@ class PlayerList extends Component {
             <StyledDiv>
               <Text lg sans spaceAround block gray>Are you sure?</Text>
               <div>
-                <Button green inline onClick={this.deleteThisPlayer}>Yes</Button>
+                <Button className="delete-confirm" green inline onClick={this.deleteThisPlayer}>Yes</Button>
                 <Button outline inline onClick={this.toggleDeleteModal}>No</Button>
               </div>
             </StyledDiv>

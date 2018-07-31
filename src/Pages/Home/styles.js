@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
   display: grid;
   grid-column-gap: 1px;
   grid-row-gap: 1px;
-  margin-top: ${({ theme }) => theme.baseSizeUnit * 2}px;
+  margin: ${({ theme }) => theme.baseSizeUnit * 2}px 0 50px;
   background: linear-gradient(
     to right,
     ${({ theme }) => theme.colors.green},
@@ -18,9 +18,7 @@ const StyledDiv = styled.div`
   }
 
   div {
-    background: ${({ theme }) => theme.colors.darkGray};
     padding: ${({ theme }) => theme.baseSizeUnit * 2}px;
-    border-radius: 2px;
   }
 `;
 

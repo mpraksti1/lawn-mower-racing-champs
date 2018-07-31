@@ -1,3 +1,146 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The playerlist! matches snapshot 1`] = `<[object Object] />`;
+exports[`The playerlist! matches snapshot 1`] = `
+<div>
+  <table
+    class="responsive-table sc-bxivhb jElrK"
+  >
+    <thead>
+      <tr>
+        <th>
+          Profile Img
+        </th>
+        <th>
+          first name
+        </th>
+        <th>
+          last name
+        </th>
+        <th>
+          rating
+        </th>
+        <th>
+          handedness
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          class="profile-pic"
+        >
+          <img
+            alt="icon"
+            src="https://randomuser.me/api/portraits/men/1.jpg"
+          >
+            
+          </img>
+        </td>
+        <td
+          data-label="first name"
+        >
+          awefff
+        </td>
+        <td
+          data-label="last name"
+        >
+          awefawef
+        </td>
+        <td
+          data-label="rating"
+        >
+          1
+        </td>
+        <td
+          data-label="handedness"
+        >
+          right
+        </td>
+        <td
+          class="delete-player"
+        >
+          <button
+            class="sc-htpNat jrDrRM"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              style="vertical-align:middle"
+              viewBox="0 0 40 40"
+              width="1em"
+            >
+              <g>
+                <path
+                  d="m31.6 10.7l-9.3 9.3 9.3 9.3-2.3 2.3-9.3-9.3-9.3 9.3-2.3-2.3 9.3-9.3-9.3-9.3 2.3-2.3 9.3 9.3 9.3-9.3z"
+                >
+                  
+                </path>
+              </g>
+            </svg>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td
+          class="profile-pic"
+        >
+          <img
+            alt="icon"
+            src="https://randomuser.me/api/portraits/women/2.jpg"
+          >
+            
+          </img>
+        </td>
+        <td
+          data-label="first name"
+        >
+          awef
+        </td>
+        <td
+          data-label="last name"
+        >
+          awfff
+        </td>
+        <td
+          data-label="rating"
+        >
+          1
+        </td>
+        <td
+          data-label="handedness"
+        >
+          right
+        </td>
+        <td
+          class="delete-player"
+        >
+          <button
+            class="sc-htpNat jrDrRM"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              preserveAspectRatio="xMidYMid meet"
+              style="vertical-align:middle"
+              viewBox="0 0 40 40"
+              width="1em"
+            >
+              <g>
+                <path
+                  d="m31.6 10.7l-9.3 9.3 9.3 9.3-2.3 2.3-9.3-9.3-9.3 9.3-2.3-2.3 9.3-9.3-9.3-9.3 2.3-2.3 9.3 9.3 9.3-9.3z"
+                >
+                  
+                </path>
+              </g>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

@@ -23,7 +23,7 @@ describe('The playerlist!', () => {
   });
 
   it('matches snapshot', () => {
-    const wrapper = shallowWithTheme(
+    const wrapper = mountWithTheme(
       <PlayerList headerNames={headerNames} players={players} />,
       theme,
     );

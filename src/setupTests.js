@@ -25,7 +25,20 @@ const shallowWithTheme = (tree, baseTheme) => {
   return shallow(tree, { context });
 };
 
+const mountWithTheme = (tree, baseTheme) => {
+  // eslint-disable-next-line
+  const context = shallow(<ThemeProvider theme={baseTheme} />)
+    .instance()
+    .getChildContext();
+
+  return render(tree, {
+    context,
+    childContextTypes: ThemeProvider.childContextTypes,
+  });
+};
+
 global.shallowWithTheme = shallowWithTheme;
+global.mountWithTheme = mountWithTheme;
 global.fakeHistory = history;
 global.theme = theme;
 global.localStorage = localStorageMock;
