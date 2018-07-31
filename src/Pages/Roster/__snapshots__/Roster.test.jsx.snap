@@ -20,22 +20,9 @@ exports[`Roster page component matches snapshot 1`] = `
   >
     Below are the players you've picked so far
   </Text>
-  <WithAlert(PlayerList)
-    deletePlayer={[Function]}
-    headerNames={
-      Array [
-        "first_name",
-        "last_name",
-        "rating",
-        "handedness",
-      ]
-    }
-    players={Array []}
-    retrievePlayers={[Function]}
-  />
   <Button
     outline={true}
-    spaceAbove={true}
+    spaceBelow={true}
   >
     <Link
       replace={false}
@@ -49,5 +36,18 @@ exports[`Roster page component matches snapshot 1`] = `
       </Text>
     </Link>
   </Button>
+  <WithAlert(PlayerList)
+    deletePlayer={[Function]}
+    headerNames={
+      Array [
+        "first_name",
+        "last_name",
+        "rating",
+        "handedness",
+      ]
+    }
+    players={Array []}
+    retrievePlayers={[Function]}
+  />
 </div>
 `;

@@ -26,6 +26,9 @@ const StyledDiv = styled.div`
   border-radius: 3px;
 
   @media (max-width: 767px) {
+    position: absolute;
+    top: 100px;
+    transform: translate(-50%, 0);
     background: rgba(51, 51, 51, 0.5);
     max-width: 350px;
     width: 90%;

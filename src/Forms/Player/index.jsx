@@ -39,7 +39,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
           <Field type="text" name="first_name" placeholder="Alex" id="firstName" />
         </div>
         {errors.first_name && touched.first_name && (
-          <Text sm red className="field-error">{errors.first_name}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.first_name}</Text>
         )}
       </div>
       <div className="field-wrapper">
@@ -51,7 +51,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
           <Field type="text" name="last_name" placeholder="Johnson" id="lastName" />
         </div>
         {errors.last_name && touched.last_name && (
-          <Text sm red className="field-error">{errors.last_name}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.last_name}</Text>
         )}
       </div>
       <div className="field-wrapper">
@@ -63,7 +63,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
           <Field type="text" name="rating" id="rating" placeholder="8000" />
         </div>
         {errors.rating && touched.rating && (
-          <Text sm red className="field-error">{errors.rating}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.rating}</Text>
         )}
       </div>
       <div className="field-wrapper">
@@ -78,7 +78,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
           </Field>
         </div>
         {errors.handedness && touched.handedness && (
-          <Text sm red className="field-error">{errors.handedness}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.handedness}</Text>
         )}
       </div>
       <Button outline type="submit" disabled={isSubmitting} id="create">Create</Button>

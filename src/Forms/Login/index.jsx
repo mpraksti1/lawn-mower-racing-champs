@@ -31,7 +31,7 @@ const MyForm = ({ errors, touched }) => (
           <Field type="email" name="email" id="email" placeholder="example@test.com" />
         </div>
         {errors.email && touched.email && (
-          <Text sm red className="field-error">{errors.email}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.email}</Text>
         )}
       </div>
       <div className="field-wrapper">
@@ -43,7 +43,7 @@ const MyForm = ({ errors, touched }) => (
           <Field type="password" name="password" id="password" placeholder="********" />
         </div>
         {errors.password && touched.password && (
-          <Text sm red className="field-error">{errors.password}</Text>
+          <Text block spaceAbove sm red className="field-error">{errors.password}</Text>
         )}
       </div>
       <Button outline type="submit" id="login">Submit</Button>

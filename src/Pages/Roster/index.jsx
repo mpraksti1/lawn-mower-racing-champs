@@ -13,17 +13,17 @@ const Roster = ({
   <div className="roster-page">
     <Text xlg sans block spaceAbove>Your LMRC Roster:</Text>
     <Text sm thin spaceBelow block>{'Below are the players you\'ve picked so far'}</Text>
+    <Button outline spaceBelow>
+      <Link to="/player/new">
+        <Text sm green>Add New</Text>
+      </Link>
+    </Button>
     <PlayerList
       headerNames={headerNames}
       retrievePlayers={retrievePlayers}
       deletePlayer={deletePlayer}
       players={players}
     />
-    <Button outline spaceAbove>
-      <Link to="/player/new">
-        <Text sm green>Add New</Text>
-      </Link>
-    </Button>
   </div>
 );
 
