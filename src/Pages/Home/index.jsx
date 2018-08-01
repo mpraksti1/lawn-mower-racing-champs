@@ -25,7 +25,7 @@ const homeItems = [{
 const Home = () => (
   <div>
     <Hero>
-      <Text sans xxlg spaceBelow block>Welcome to the Lawn Mowing Racing Championships!</Text>
+      <Text sans xxlg spaceBelow block>Welcome to the Lawn Mower Racing Championships!</Text>
       <Text sans thin lg block>
         Add and remove racers from the roster at will, their fate is in your hands.
       </Text>

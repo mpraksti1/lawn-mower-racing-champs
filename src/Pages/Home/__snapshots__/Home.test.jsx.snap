@@ -11,7 +11,7 @@ exports[`Home page component matches snapshot 1`] = `
       spaceBelow={true}
       xxlg={true}
     >
-      Welcome to the Lawn Mowing Racing Championships!
+      Welcome to the Lawn Mower Racing Championships!
     </Text>
     <Text
       block={true}
