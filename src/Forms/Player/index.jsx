@@ -9,6 +9,7 @@ import HandIcon from 'react-icons/lib/md/pan-tool';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
 import Text from '../../Elements/Text';
+import to from '../../awaitToJs';
 
 const PlayerrSchema = Yup.object().shape({
   first_name: Yup.string()
@@ -96,20 +97,29 @@ export const PlayerForm = props => (
         handedness: 'right',
       }}
       validationSchema={PlayerrSchema}
-      onSubmit={async (player) => {
-        const { token } = window.localStorage;
-        try {
-          const { createPlayer } = props;
-          const playerResult = await createPlayer(player, token);
-          if (playerResult.success) {
+      onSubmit={
+        async (player) => {
+          const token = window.localStorage.getItem('token');
+          const { createPlayer, alert } = props;
+          let err;
+          let playerAddResult;
+
+          // eslint doesn't know the return from this function is an array
+          // eslint-disable-next-line prefer-const
+          [err, playerAddResult] = await to(createPlayer(player, token));
+
+          if (playerAddResult.success) {
             props.history.push('/roster');
-          } else {
-            props.alert.error(playerResult.error.message);
+            return;
           }
-        } catch (error) {
-          props.alert.error(error.message);
-        }
-      }}
+
+          if (err) {
+            alert.error('There was a problem creating your player, please try again');
+            return;
+          }
+
+          alert.error('Whoops, something went wrong!');
+        }}
       component={MyForm}
     />
   </BaseForm>

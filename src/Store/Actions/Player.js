@@ -5,8 +5,12 @@ import {
   ASYNC_REQUESTED,
   ASYNC_COMPLETE,
 } from './Types';
+import to from '../../awaitToJs';
 
 const api = 'https://players-api.developer.alchemy.codes/api';
+
+
+// Requests
 
 async function retrievePlayersRequest(token) {
   const response = await fetch(`${api}/players`, {
@@ -14,26 +18,6 @@ async function retrievePlayersRequest(token) {
   });
   return response.json();
 }
-
-export const retrievePlayers = player => async (dispatch) => {
-  const onError = error => error;
-
-  const onSuccess = (data) => {
-    dispatch({
-      type: RETRIEVE_PLAYERS,
-      payload: data.players,
-    });
-    return data;
-  };
-
-  try {
-    const data = await retrievePlayersRequest(player);
-    return onSuccess(data);
-  } catch (error) {
-    return onError(error.message);
-  }
-};
-
 
 async function createPlayerRequest(player, token) {
   const data = JSON.stringify(player);
@@ -49,30 +33,6 @@ async function createPlayerRequest(player, token) {
   return response.json();
 }
 
-export const createPlayer = (player, token) => async (dispatch) => {
-  dispatch({ type: ASYNC_REQUESTED });
-
-  const onError = error => error;
-
-  const onSuccess = (data) => {
-    dispatch({
-      type: CREATE_PLAYER,
-      payload: data,
-    });
-    return data;
-  };
-
-  try {
-    const data = await createPlayerRequest(player, token);
-    dispatch({ type: ASYNC_COMPLETE });
-    return onSuccess(data);
-  } catch (error) {
-    dispatch({ type: ASYNC_COMPLETE });
-    return onError(error);
-  }
-};
-
-
 async function deletePlayerRequest(id, token) {
   const response = await fetch(`${api}/players/${id}`, {
     headers: {
@@ -83,9 +43,85 @@ async function deletePlayerRequest(id, token) {
   return response.json();
 }
 
-export const deletePlayer = (id, token) => async (dispatch) => {
-  const onError = error => error;
 
+// Thunks
+
+export const retrievePlayers = player => async (dispatch) => {
+  dispatch({ type: ASYNC_REQUESTED });
+
+  let err;
+  let callResponse;
+
+  const onError = (error) => {
+    throw new Error(error.message);
+  };
+
+  const onSuccess = (response) => {
+    dispatch({
+      type: RETRIEVE_PLAYERS,
+      payload: response.players,
+    });
+    return response;
+  };
+
+  // eslint-disable-next-line prefer-const
+  [err, callResponse] = await to(retrievePlayersRequest(player));
+
+  if (callResponse) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onSuccess(callResponse);
+  }
+
+  if (err) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onError(err);
+  }
+
+  return onError({ message: 'Whoops, there was a problem with your request' });
+};
+
+export const createPlayer = (player, token) => async (dispatch) => {
+  dispatch({ type: ASYNC_REQUESTED });
+
+  let err;
+  let callResponse;
+
+  const onError = (error) => {
+    throw new Error(error.message);
+  };
+
+  const onSuccess = (response) => {
+    dispatch({
+      type: CREATE_PLAYER,
+      payload: response,
+    });
+    return response;
+  };
+  // eslint-disable-next-line prefer-const
+  [err, callResponse] = await to(createPlayerRequest(player, token));
+
+  if (callResponse) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onSuccess(callResponse);
+  }
+
+  if (err) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onError(err);
+  }
+
+  return onError({ message: 'Whoops, there was a problem with your request' });
+};
+
+export const deletePlayer = (id, token) => async (dispatch) => {
+  dispatch({ type: ASYNC_REQUESTED });
+
+  let err;
+  let callResponse;
+
+  const onError = (error) => {
+    throw new Error(error.message);
+  };
   const onSuccess = (data) => {
     dispatch({
       type: DELETE_PLAYER,
@@ -93,10 +129,18 @@ export const deletePlayer = (id, token) => async (dispatch) => {
     return data;
   };
 
-  try {
-    const data = await deletePlayerRequest(id, token);
-    return onSuccess(data);
-  } catch (error) {
-    return onError(error);
+  // eslint-disable-next-line prefer-const
+  [err, callResponse] = await to(deletePlayerRequest(id, token));
+
+  if (callResponse) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onSuccess(callResponse);
   }
+
+  if (err) {
+    dispatch({ type: ASYNC_COMPLETE });
+    return onError(err);
+  }
+
+  return onError({ message: 'Whoops, there was a problem with your request' });
 };

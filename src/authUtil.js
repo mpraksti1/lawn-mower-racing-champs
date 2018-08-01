@@ -3,7 +3,7 @@ export const isLoggedIn = () => (
 );
 
 export const hasValidToken = () => (
-  !!(window.localStorage.expiresIn && window.localStorage.expiresIn > Date.now())
+  !!(window.localStorage.expiresIn && window.localStorage.getItem('expiresIn') > Date.now())
 );
 
 export const checkAuthStatus = () => (

@@ -10,19 +10,25 @@ describe('Delete Player', () => {
 		cy.route('GET', 'https://players-api.developer.alchemy.codes/api/players', 'fixture:getPlayersDeleted.json');
 	});
 
-	it('Will delete a player', () => {
-		cy
-			.get('.delete')
-			.last()
-			.click();
+	const sizes = ['iphone-6', 'macbook-15'];
+	
+	sizes.forEach((size) => {
+		it(`Will delete a player ${size}`, () => {
+			cy.viewport(size);
+			
+			cy
+				.get('.delete')
+				.last()
+				.click();
 
 			cy
-			.get('.delete-confirm')
-			.click();
+				.get('.delete-confirm')
+				.click();
 
-		cy.get('.delete').should($a => {
-			// should have found 3 elements
-			expect($a).to.have.length(3);
+			cy.get('.delete').should($a => {
+				// should have found 3 elements
+				expect($a).to.have.length(3);
+			});
 		});
 	});
 });

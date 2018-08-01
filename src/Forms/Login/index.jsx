@@ -8,6 +8,7 @@ import EyeIcon from 'react-icons/lib/md/remove-red-eye';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
 import Text from '../../Elements/Text';
+import to from '../../awaitToJs';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -61,17 +62,24 @@ export const LoginForm = props => (
       validationSchema={SignInSchema}
       onSubmit={
         async (creds) => {
-          const { login } = props;
-          try {
-            const loginResult = await login(creds);
-            if (loginResult.success) {
-              props.history.push('/roster');
-            } else {
-              props.alert.error(loginResult.error.message);
-            }
-          } catch (error) {
-            props.alert.error(error.message);
+          const { login, alert } = props;
+          let err;
+          let loginResult;
+          // eslint doesn't know the return from this function is an array
+          // eslint-disable-next-line prefer-const
+          [err, loginResult] = await to(login(creds));
+
+          if (loginResult.success) {
+            props.history.push('/roster');
+            return;
           }
+
+          if (err) {
+            alert.error('There was a problem logging you in, please try again');
+            return;
+          }
+
+          alert.error('Whoops, something went wrong!');
         }}
       component={MyForm}
     />
