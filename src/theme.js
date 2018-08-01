@@ -5,8 +5,7 @@ const theme = {
   },
   fonts: {
     baseFont: 'Helvetica',
-    sansFont: 'Gotham',
-    displayFont: 'Playfair Display',
+    sansFont: 'Montserrat',
   },
   baseSizeUnit: 8,
   baseFontUnit: 16,

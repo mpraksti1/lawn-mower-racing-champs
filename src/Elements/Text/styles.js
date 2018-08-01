@@ -25,9 +25,8 @@ const StyledText = styled.span`
   }};
 
   font-family: ${({
-    fancy, sans, theme,
+    sans, theme,
   }) => {
-    if (fancy) return theme.fonts.displayFont;
     if (sans) return theme.fonts.sansFont;
     return theme.fonts.baseFont;
   }};
