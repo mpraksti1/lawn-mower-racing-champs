@@ -43,11 +43,13 @@ export class AppHeader extends Component {
     const { checkAuthStatus } = this.props;
     return (
       <StyledHeader>
-        <p className="logo">
-          <img className="logo-img" src="/assets/images/logo.png" alt="logo" />
-          <span className="logo-text">LMRC</span>
-        </p>
-        {checkAuthStatus() && this.generateNavigation()}
+        <div className="nav-wrap">
+          <p className="logo">
+            <img className="logo-img" src="/assets/images/logo.png" alt="logo" />
+            <span className="logo-text">LMRC</span>
+          </p>
+          {checkAuthStatus() && this.generateNavigation()}
+        </div>
       </StyledHeader>
     );
   }

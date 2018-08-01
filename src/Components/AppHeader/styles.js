@@ -4,8 +4,13 @@ const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => theme.baseSizeUnit * 2}px;
   position: relative;
-  display: grid;
-  grid-template-columns: 100px auto auto;
+
+  .nav-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 100px auto auto;
+  }
 
   .logo {
     font-size: 20px;
