@@ -2,16 +2,16 @@
 
 exports[`App component matches snapshot 1`] = `
 <Provider
-  offset="30px"
+  offset="10px"
   position="top center"
   template={[Function]}
-  timeout={5000}
+  timeout={4000}
   transition="scale"
   type="info"
   zIndex={100}
 >
   <AppStyled>
-    <withRouter(Connect(AppHeader))
+    <WithAlert(withRouter(Connect(AppHeader)))
       checkAuthStatus={[Function]}
     />
     <main>

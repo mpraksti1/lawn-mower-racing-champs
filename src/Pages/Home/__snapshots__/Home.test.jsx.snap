@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home page component matches snapshot 1`] = `
-<div>
+<styled.div>
   <Hero
     imgUrl=""
   >
@@ -11,42 +11,61 @@ exports[`Home page component matches snapshot 1`] = `
       spaceBelow={true}
       xxlg={true}
     >
-      Welcome to the Lawn Mower Racing Championships!
+      Welcome to the Lawn Mower Racing Championships Fantasy League!
     </Text>
     <Text
       block={true}
-      lg={true}
       sans={true}
-      thin={true}
+      spaceBelow={true}
+      xlg={true}
     >
-      Add and remove racers from the roster at will, their fate is in your hands.
+      (More commonly referred to as the LMRCFL)
     </Text>
   </Hero>
+  <div>
+    <Text
+      alignCenter={true}
+      block={true}
+      sans={true}
+      spaceAbove={true}
+      xxlg={true}
+    >
+      What the heck is it?
+    </Text>
+    <Text
+      alignCenter={true}
+      block={true}
+      sans={true}
+      spaceAround={true}
+    >
+      Lawn mower racing was started back in 1973 by an Irishman named Jim Gavin, in a pub in Wisborough Green, West Sussex where conversation turned to the topic of motorsports.  Jim wanted to create a form of motorsport that didn’t involve lots of money and was readily accessible to everyone. As Jim and the group he lunched with looked out across the village green, there was the groundsman mowing the cricket pitch. It was then they realized everyone had a lawn mower in their garden shed so they said “let’s race them”! The main objectives were no sponsorship, no commercialism, no cash prizes and no modified mower engines. This would keep costs down and resulted in lawnmower racing being described by Motor Sport News as “the cheapest form of motorsport in the U.K.” Lawn Mower Racing takes place all over the world now!
+    </Text>
+  </div>
   <styled.div>
     <Card
       bg="/assets/images/home-item-1.jpg"
-      copy="The fastest lawn mowers this side of the river, guarunteed."
+      copy="The fastest lawn mowers this side of the river, guaranteed."
       key="Speed!"
       title="Speed!"
     >
-      <MdError />
+      <MdUpdate />
     </Card>
     <Card
       bg="/assets/images/home-item-2.jpg"
-      copy="The largest group of LMRC enthusiests online."
+      copy="The largest group of LMRC enthusiasts online."
       key="Community!"
       title="Community!"
     >
-      <MdError />
+      <MdPeople />
     </Card>
     <Card
       bg="/assets/images/home-item-3.jpg"
-      copy="This is full contact Lawn mower racing at it's best."
+      copy="This is full contact lawn mower racing at it's best."
       key="Danger!"
       title="Danger!"
     >
       <MdError />
     </Card>
   </styled.div>
-</div>
+</styled.div>
 `;

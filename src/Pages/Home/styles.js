@@ -1,7 +1,7 @@
 
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+export const StyledDiv = styled.div`
   display: grid;
   grid-column-gap: 1px;
   grid-row-gap: 1px;
@@ -22,4 +22,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-export default StyledDiv;
+export const StyledWrapper = styled.div`
+  display: grid;
+  grid-row-gap: ${({ theme }) => theme.baseSizeUnit * 3}px;
+`;
