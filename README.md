@@ -19,3 +19,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ```
   yarn test
 ```
+
+**If for whatever reason you can't get it working locally**
+Visit:
+https://lmrc.herokuapp.com/
