@@ -5,7 +5,7 @@ const StyledDiv = styled.div`
   position: relative;
   margin: 0 -${({ theme }) => theme.baseSizeUnit * 2}px;
   background-size: cover;
-  background-image: url('/assets/images/homebg.jpg');
+  background-image: url('/assets/images/homebg1.jpg');
 `;
 
 export default StyledDiv;

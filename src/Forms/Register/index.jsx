@@ -122,12 +122,13 @@ export const RegisterForm = props => (
           [err, loginResult] = await to(register(user));
 
           if (loginResult) {
+            alert.success('Welcome to the LMRCFL!');
             props.history.push('/roster');
             return;
           }
 
           if (err) {
-            alert.error('There was a problem creating your account, please try again');
+            alert.error('There was a problem creating your account');
             return;
           }
 

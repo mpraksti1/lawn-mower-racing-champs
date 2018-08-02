@@ -109,12 +109,13 @@ export const PlayerForm = props => (
           [err, playerAddResult] = await to(createPlayer(player, token));
 
           if (playerAddResult) {
+            alert.success('Racer added to your team!');
             props.history.push('/roster');
             return;
           }
 
           if (err) {
-            alert.error('There was a problem creating your player, please try again');
+            alert.error('There was a problem creating your player');
             return;
           }
 

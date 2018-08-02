@@ -16,7 +16,7 @@ import 'whatwg-fetch';
 
 const alertOptions = {
   position: 'top center',
-  timeout: 5000000,
+  timeout: 4000,
   transition: 'scale',
 };
 
@@ -31,7 +31,7 @@ const AlertTemplate = (props) => {
         {options.type === 'error' && <ErrorIcon />}
       </div>
       <Text xsm sans>{message}</Text>
-      <Button className="close" isLink onClick={close}>
+      <Button className="close" islink onClick={close}>
         <DeleteIcon />
       </Button>
     </StyledAlert>

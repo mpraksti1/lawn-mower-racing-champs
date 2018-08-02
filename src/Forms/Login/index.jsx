@@ -78,12 +78,13 @@ export const LoginForm = props => (
           [err, loginResult] = await to(login(creds));
 
           if (loginResult) {
+            alert.success('You\'re in, have fun!');
             props.history.push('/roster');
             return;
           }
 
           if (err) {
-            alert.error('There was a problem logging you in, please try again');
+            alert.error('There was a problem logging you in');
             return;
           }
 

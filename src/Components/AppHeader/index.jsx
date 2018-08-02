@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
+import { withAlert } from 'react-alert';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../Elements/Button';
@@ -17,9 +18,10 @@ export class AppHeader extends Component {
   }
 
   logUserOut() {
-    const { logoutUser, history } = this.props;
+    const { logoutUser, history, alert } = this.props;
 
     logoutUser();
+    alert.success('See ya next time!');
     history.push('/auth/login');
   }
 
@@ -46,7 +48,7 @@ export class AppHeader extends Component {
         <div className="nav-wrap">
           <p className="logo">
             <img className="logo-img" src="/assets/images/logo.png" alt="logo" />
-            <span className="logo-text">LMRC</span>
+            <span className="logo-text">LMRCFL</span>
           </p>
           {checkAuthStatus() && this.generateNavigation()}
         </div>
@@ -62,6 +64,8 @@ AppHeader.defaultProps = {
 AppHeader.propTypes = {
   // eslint-disable-next-line
   history: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  alert: PropTypes.object.isRequired,
   logoutUser: PropTypes.func.isRequired,
   checkAuthStatus: PropTypes.func,
 };
@@ -70,9 +74,11 @@ const mapDispatchToProps = {
   logoutUser: logout,
 };
 
-export default withRouter(
-  connect(
-    null,
-    mapDispatchToProps,
-  )(AppHeader),
+export default withAlert(
+  withRouter(
+    connect(
+      null,
+      mapDispatchToProps,
+    )(AppHeader),
+  ),
 );

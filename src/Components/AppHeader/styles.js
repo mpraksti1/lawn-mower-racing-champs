@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 100px auto auto;
+    grid-template-columns: 120px auto auto;
   }
 
   .logo {

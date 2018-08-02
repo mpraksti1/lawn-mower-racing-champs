@@ -9,11 +9,11 @@ export const StyledDiv = styled.div`
 StyledDiv.displayName = 'AppStyled';
 
 export const StyledAlert = styled.div`
-  margin-top: 100px;
+  margin-top: 70px;
   border-radius: 3px;
   font-family: 'Montserrat';
-  background: #333;
-  padding: ${({ theme }) => theme.baseSizeUnit * 2}px 0;
+  background: #444;
+  padding: ${({ theme }) => theme.baseSizeUnit}px 0;
   display: grid;
   grid-template-columns: 50px 1fr 50px;
   grid-column-gap: ${({ theme }) => theme.baseSizeUnit * 2}px;
@@ -47,9 +47,12 @@ export const StyledAlert = styled.div`
   } 
 
   .close {
+    margin-top: 0;
+
     svg {
       height: 25px;
       width: 25px;
+      fill: ${({ theme }) => theme.colors.white};
     }
   }
 `;

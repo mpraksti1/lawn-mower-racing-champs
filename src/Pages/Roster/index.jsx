@@ -11,13 +11,13 @@ const Roster = ({
   retrievePlayers, deletePlayer, players,
 }) => (
   <div className="roster-page">
-    <Text xlg sans block spaceAbove>Your LMRC Fantasy Team:</Text>
-    <Text sm thin spaceBelow block>
-      Add and remove players to create the perfect team, if your racers do well, so do you!
+    <Text xlg sans block spaceAround>Your LMRC Fantasy Team:</Text>
+    <Text sm thin block>
+      Add and remove players to create the perfect team, if your racers do well, so do you.
     </Text>
     <Text sm thin spaceBelow block>
       Try and pick racers with a good mixture of skill in handling, reaction time and,
-      of course, a fast mower!
+      of course, a fast mower.
     </Text>
     <Button outline spaceBelow>
       <Link to="/player/new">

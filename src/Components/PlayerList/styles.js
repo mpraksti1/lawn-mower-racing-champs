@@ -131,11 +131,8 @@ export const StyledDiv = styled.div`
   border-radius: 2px;
   
   button {
-    margin-right: ${({ theme }) => theme.baseSizeUnit}px;
-
-    &:last-child {
-      margin-right: 0;
-    }
+    width: 100%;
+    margin-bottom: ${({ theme }) => theme.baseSizeUnit}px;
   }
 `;
 

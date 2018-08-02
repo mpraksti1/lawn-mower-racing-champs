@@ -54,6 +54,7 @@ class PlayerList extends Component {
       if (deleteValue.success) {
         this.toggleDeleteModal();
         this.retrievePlayers();
+        alert.success('Racer deleted!');
       }
     } catch (error) {
       alert.error(error.message);
