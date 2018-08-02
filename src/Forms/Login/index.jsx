@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { withAlert } from 'react-alert';
 import { Formik, Field, Form } from 'formik';
 import EmailIcon from 'react-icons/lib/md/email';
-import EyeIcon from 'react-icons/lib/md/remove-red-eye';
+import LockIcon from 'react-icons/lib/md/lock';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
 import Text from '../../Elements/Text';
@@ -18,10 +18,18 @@ const SignInSchema = Yup.object().shape({
     .required('Required'),
 });
 
+let title;
+let copy;
+const hasVisited = window.localStorage.getItem('hasVisited');
+const visitedText = ['Welcome back!', 'Good to see you again!'];
+const newText = ['Welcome!', 'Thanks for visiting the LMRCFL!'];
+// eslint-disable-next-line prefer-const
+[title, copy] = hasVisited ? visitedText : newText;
+
 const MyForm = ({ errors, touched }) => (
   <div>
-    <Text xlg sans spaceAbove block>Welcome back!</Text>
-    <Text sm thin spaceBelow block>Good to see you again!</Text>
+    <Text xlg sans spaceAbove block>{title}</Text>
+    <Text sm thin spaceBelow block>{copy}</Text>
     <Form noValidate>
       <div className="field-wrapper">
         <label htmlFor="email">
@@ -40,7 +48,7 @@ const MyForm = ({ errors, touched }) => (
           <Text xsm thin sans spaceBelow block>Password</Text>
         </label>
         <div className="icon-input">
-          <EyeIcon />
+          <LockIcon />
           <Field type="password" name="password" id="password" placeholder="********" />
         </div>
         {errors.password && touched.password && (
@@ -69,7 +77,7 @@ export const LoginForm = props => (
           // eslint-disable-next-line prefer-const
           [err, loginResult] = await to(login(creds));
 
-          if (loginResult.success) {
+          if (loginResult) {
             props.history.push('/roster');
             return;
           }

@@ -5,7 +5,7 @@ import { withAlert } from 'react-alert';
 import { Formik, Field, Form } from 'formik';
 import PersonIcon from 'react-icons/lib/md/person';
 import EmailIcon from 'react-icons/lib/md/email';
-import EyeIcon from 'react-icons/lib/md/remove-red-eye';
+import LockIcon from 'react-icons/lib/md/lock';
 import BaseForm from '../BaseForm';
 import Button from '../../Elements/Button';
 import Text from '../../Elements/Text';
@@ -31,9 +31,9 @@ const RegisterSchema = Yup.object().shape({
 
 const MyForm = ({ touched, errors }) => (
   <div>
-    <Text xlg sans spaceAbove block>Welcome to the LMRC</Text>
+    <Text xlg sans spaceAround block>Welcome to the LMRCFL!</Text>
     <Text sm thin spaceBelow block>
-      Fill in the form below for access to a personalized roster of your favorite RCLM athletes!
+      Fill in the form below for access to a personalized team of your favorite RCLM racers!
     </Text>
     <Form>
       <div className="field-wrapper">
@@ -77,7 +77,7 @@ const MyForm = ({ touched, errors }) => (
           <Text xsm thin sans spaceBelow block>Password</Text>
         </label>
         <div className="icon-input">
-          <EyeIcon />
+          <LockIcon />
           <Field type="password" name="password" placeholder="********" id="password" />
         </div>
         {errors.password && touched.password && (
@@ -89,7 +89,7 @@ const MyForm = ({ touched, errors }) => (
           <Text xsm thin sans spaceBelow block>Confirm Password</Text>
         </label>
         <div className="icon-input">
-          <EyeIcon />
+          <LockIcon />
           <Field type="password" name="confirm_password" id="confirmPassword" placeholder="********" />
         </div>
         {errors.confirm_password && touched.confirm_password && (
@@ -114,14 +114,14 @@ export const RegisterForm = props => (
       validationSchema={RegisterSchema}
       onSubmit={
         async (user) => {
-          const { register } = props;
+          const { register, alert } = props;
           let err;
           let loginResult;
           // eslint doesn't know the return from this function is an array
           // eslint-disable-next-line prefer-const
           [err, loginResult] = await to(register(user));
 
-          if (loginResult.success) {
+          if (loginResult) {
             props.history.push('/roster');
             return;
           }

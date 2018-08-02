@@ -162,10 +162,16 @@ class PlayerList extends Component {
         { deleteModalShowing && (
           <Centered fixed>
             <StyledDiv>
-              <Text lg sans spaceAround block gray>Are you sure?</Text>
+              <Text lg sans spaceAround block gray alignCenter>
+                Are you sure you want to delete this racer?
+              </Text>
               <div>
-                <Button className="delete-confirm" green inline onClick={this.deleteThisPlayer}>Yes</Button>
-                <Button outline inline onClick={this.toggleDeleteModal}>No</Button>
+                <Button className="delete-confirm" green inline onClick={this.deleteThisPlayer}>
+                  {'Yep, they\'re outta here!'}
+                </Button>
+                <Button outline inline onClick={this.toggleDeleteModal}>
+                  Nah, I changed my mind.
+                </Button>
               </div>
             </StyledDiv>
           </Centered>

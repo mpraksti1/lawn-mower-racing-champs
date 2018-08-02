@@ -11,6 +11,8 @@ import { logout } from '../../Store/Actions/Auth';
 import { createPlayer, deletePlayer, retrievePlayers } from '../../Store/Actions/Player';
 import StyledDiv from './styles';
 
+window.localStorage.setItem('hasVisited', true);
+
 const Site = (props) => {
   const {
     checkAuthStatus,

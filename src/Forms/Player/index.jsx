@@ -108,7 +108,7 @@ export const PlayerForm = props => (
           // eslint-disable-next-line prefer-const
           [err, playerAddResult] = await to(createPlayer(player, token));
 
-          if (playerAddResult.success) {
+          if (playerAddResult) {
             props.history.push('/roster');
             return;
           }
