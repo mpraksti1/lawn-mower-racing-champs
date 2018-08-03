@@ -9,6 +9,7 @@ const StyledForm = styled.div`
     border: none;
     border-radius: 5px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    outline: none;
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.gray};
@@ -24,6 +25,7 @@ const StyledForm = styled.div`
     text-align: center;
     padding: 0px 16px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+    outline: none;
   }
 
   form {
@@ -33,6 +35,9 @@ const StyledForm = styled.div`
 
   .icon-input {
     position: relative;
+    border-radius: 7px;
+
+    &.error { border: 2px solid red; }
 
     svg {
       position: absolute;

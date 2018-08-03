@@ -35,7 +35,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         <label htmlFor="firstName">
           <Text xsm thin sans spaceBelow block>First Name</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.first_name && touched.first_name ? 'error' : null}`}>
           <PersonIcon />
           <Field type="text" name="first_name" placeholder="Alex" id="firstName" />
         </div>
@@ -47,7 +47,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         <label htmlFor="lastName">
           <Text xsm thin sans spaceBelow block>Last Name</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.last_name && touched.last_name ? 'error' : null}`}>
           <PersonIcon />
           <Field type="text" name="last_name" placeholder="Johnson" id="lastName" />
         </div>
@@ -59,7 +59,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         <label htmlFor="rating">
           <Text xsm thin sans spaceBelow block>Rating</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.rating && touched.rating ? 'error' : null}`}>
           <StarIcon />
           <Field type="text" name="rating" id="rating" placeholder="8000" />
         </div>
@@ -71,7 +71,7 @@ const MyForm = ({ touched, errors, isSubmitting }) => (
         <label htmlFor="handedness">
           <Text xsm thin sans spaceBelow block>Handedness</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.handedness && touched.handedness ? 'error' : null}`}>
           <HandIcon />
           <Field component="select" name="handedness" id="handedness">
             <option value="right">Right</option>

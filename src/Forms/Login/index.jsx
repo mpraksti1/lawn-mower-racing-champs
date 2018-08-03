@@ -35,7 +35,7 @@ const MyForm = ({ errors, touched }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>Email</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.email && touched.email ? 'error' : null}`}>
           <EmailIcon />
           <Field type="email" name="email" id="email" placeholder="example@test.com" />
         </div>
@@ -47,7 +47,7 @@ const MyForm = ({ errors, touched }) => (
         <label htmlFor="password">
           <Text xsm thin sans spaceBelow block>Password</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.password && touched.password ? 'error' : null}`}>
           <LockIcon />
           <Field type="password" name="password" id="password" placeholder="********" />
         </div>

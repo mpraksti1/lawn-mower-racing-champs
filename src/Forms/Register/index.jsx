@@ -40,7 +40,7 @@ const MyForm = ({ touched, errors }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>First Name</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.first_name && touched.first_name ? 'error' : null}`}>
           <PersonIcon />
           <Field type="text" name="first_name" placeholder="Casey" id="firstName" />
         </div>
@@ -52,7 +52,7 @@ const MyForm = ({ touched, errors }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>Last Name</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.last_name && touched.last_name ? 'error' : null}`}>
           <PersonIcon />
           <Field type="text" name="last_name" placeholder="Doe" id="lastName" />
         </div>
@@ -64,7 +64,7 @@ const MyForm = ({ touched, errors }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>Email</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.email && touched.email ? 'error' : null}`}>
           <EmailIcon />
           <Field type="email" name="email" placeholder="example@test.com" id="email" />
         </div>
@@ -76,7 +76,7 @@ const MyForm = ({ touched, errors }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>Password</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.password && touched.password ? 'error' : null}`}>
           <LockIcon />
           <Field type="password" name="password" placeholder="********" id="password" />
         </div>
@@ -88,7 +88,7 @@ const MyForm = ({ touched, errors }) => (
         <label htmlFor="email">
           <Text xsm thin sans spaceBelow block>Confirm Password</Text>
         </label>
-        <div className="icon-input">
+        <div className={`icon-input ${errors.confirm_password && touched.confirm_password ? 'error' : null}`}>
           <LockIcon />
           <Field type="password" name="confirm_password" id="confirmPassword" placeholder="********" />
         </div>
