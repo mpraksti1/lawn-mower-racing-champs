@@ -16,7 +16,7 @@ exports[`App header component matches snapshot 1`] = `
       <span
         className="logo-text"
       >
-        LMRC
+        LMRCFL
       </span>
     </p>
     <nav

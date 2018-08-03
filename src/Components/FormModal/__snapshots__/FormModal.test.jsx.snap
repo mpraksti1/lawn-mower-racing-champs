@@ -33,7 +33,7 @@ exports[`Form modal matches snapshot 1`] = `
         </g>
       </svg>
       <span
-        className="sc-bdVaJa gjLHKm"
+        className="sc-bdVaJa jPtKZF"
       >
         Register
       </span>
@@ -64,7 +64,7 @@ exports[`Form modal matches snapshot 1`] = `
         </g>
       </svg>
       <span
-        className="sc-bdVaJa gjLHKm"
+        className="sc-bdVaJa jPtKZF"
       >
         Login
       </span>

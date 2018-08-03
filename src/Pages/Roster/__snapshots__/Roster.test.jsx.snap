@@ -7,10 +7,17 @@ exports[`Roster page component matches snapshot 1`] = `
   <Text
     block={true}
     sans={true}
-    spaceAbove={true}
+    spaceAround={true}
     xlg={true}
   >
-    Your LMRC Roster:
+    Your LMRC Fantasy Team:
+  </Text>
+  <Text
+    block={true}
+    sm={true}
+    thin={true}
+  >
+    Add and remove players to create the perfect team, if your racers do well, so do you.
   </Text>
   <Text
     block={true}
@@ -18,7 +25,7 @@ exports[`Roster page component matches snapshot 1`] = `
     spaceBelow={true}
     thin={true}
   >
-    Below are the players you've picked so far
+    Try and pick racers with a good mixture of skill in handling, reaction time and, of course, a fast mower.
   </Text>
   <Button
     outline={true}

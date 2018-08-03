@@ -34,7 +34,7 @@ const Home = () => (
       <Text sans xlg spaceBelow block>(More commonly referred to as the LMRCFL)</Text>
     </Hero>
     <div>
-      <Text sans xxlg spaceAbove block alignCenter>What the heck is it?</Text>
+      <Text sans xxlg spaceAbove block alignCenter>What the heck <i>is it?</i></Text>
       <Text sans spaceAround block alignCenter>
         Lawn mower racing was started back in 1973 by an Irishman named Jim Gavin,
         in a pub in Wisborough Green, West Sussex where conversation turned to the

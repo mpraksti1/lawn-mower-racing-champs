@@ -9,6 +9,7 @@ describe('App header component', () => {
       history={fakeHistory}
       logoutUser={() => {}}
       checkAuthStatus={returnTrue}
+      alert={{}}
     />);
   });
 
@@ -19,6 +20,7 @@ describe('App header component', () => {
         history={fakeHistory}
         logoutUser={() => {}}
         checkAuthStatus={returnTrue}
+        alert={{}}
       />,
     );
 
@@ -32,11 +34,12 @@ describe('App header component', () => {
         history={fakeHistory}
         logoutUser={() => {}}
         checkAuthStatus={returnTrue}
+        alert={{}}
       />, theme,
     );
     const logoText = wrapper.find('.logo-text').text();
 
-    expect(logoText).toEqual('LMRC');
+    expect(logoText).toEqual('LMRCFL');
   });
 
   it('logs user out when button is clicked', () => {
@@ -47,6 +50,7 @@ describe('App header component', () => {
         history={fakeHistory}
         logoutUser={spy}
         checkAuthStatus={returnTrue}
+        alert={{ success: () => {} }}
       />, theme,
     );
 

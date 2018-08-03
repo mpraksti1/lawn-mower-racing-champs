@@ -25,4 +25,6 @@ export const StyledDiv = styled.div`
 export const StyledWrapper = styled.div`
   display: grid;
   grid-row-gap: ${({ theme }) => theme.baseSizeUnit * 3}px;
+
+  i { font-style: italic; }
 `;

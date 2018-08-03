@@ -30,7 +30,10 @@ exports[`Home page component matches snapshot 1`] = `
       spaceAbove={true}
       xxlg={true}
     >
-      What the heck is it?
+      What the heck 
+      <i>
+        is it?
+      </i>
     </Text>
     <Text
       alignCenter={true}
